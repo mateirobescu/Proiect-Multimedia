@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editor SVG</title>
+  <link rel="stylesheet" href="6_1075_ROBESCU_Matei-Gabriel.css">
+  <!-- scriptul e cu defer ca sa se incarce dupa ce exista elementele din pagina -->
+  <script src="6_1075_ROBESCU_Matei-Gabriel.js" defer></script>
+</head>
+<body>
+  <!-- bara de sus: unelte de desenat + actiuni -->
+  <header class="toolbar">
+    <h1 class="title">Editor SVG</h1>
+
+    <!-- uneltele de desenat; data-tool e citit din js -->
+    <div class="group" role="group" aria-label="Unelte de desen">
+      <button type="button" class="tool" data-tool="select" aria-pressed="true">Selectie</button>
+      <button type="button" class="tool" data-tool="line" aria-pressed="false">Linie</button>
+      <button type="button" class="tool" data-tool="ellipse" aria-pressed="false">Elipsa</button>
+      <button type="button" class="tool" data-tool="rect" aria-pressed="false">Dreptunghi</button>
+      <button type="button" class="tool" data-tool="path" aria-pressed="false">Cale</button>
+    </div>
+
+    <!-- actiuni: undo, stergere, export, salvare -->
+    <div class="group" role="group" aria-label="Actiuni">
+      <button type="button" id="btn-undo">Undo</button>
+      <button type="button" id="btn-delete">Sterge</button>
+      <button type="button" id="btn-export-png">Export PNG</button>
+      <button type="button" id="btn-export-jpeg">Export JPEG</button>
+      <button type="button" id="btn-save-svg">Salveaza SVG</button>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <!-- zona de desen; viewBox fixeaza sistemul de coordonate -->
+    <section class="canvas-wrap" aria-label="Zona de desen">
+      <svg id="canvas" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="1000" height="700"></svg>
+    </section>
+
+    <!-- panou cu proprietati; se aplica la figura noua sau la cea selectata -->
+    <aside class="properties" aria-label="Proprietati">
+      <h2>Proprietati</h2>
+
+      <label for="stroke-color">Culoare contur</label>
+      <input type="color" id="stroke-color" value="#000000">
+
+      <label for="stroke-width">Grosime contur</label>
+      <input type="number" id="stroke-width" min="1" max="50" step="1" value="2">
+
+      <label for="fill-color">Culoare fundal</label>
+      <input type="color" id="fill-color" value="#ffffff">
+
+      <label class="checkbox">
+        <input type="checkbox" id="fill-none" checked>
+        Fara fundal
+      </label>
+
+      <p id="status" class="status" aria-live="polite">Unealta: selectie</p>
+    </aside>
+  </main>
+</body>
+</html>
