@@ -1,0 +1,9 @@
+# site static, fara build: Netlify serveste direct fisierele din radacina
+[build]
+  publish = "."
+
+# pagina principala nu se numeste index.html, asa ca / trimite la ea
+[[redirects]]
+  from = "/"
+  to = "/6_1075_ROBESCU_Matei-Gabriel.html"
+  status = 200
