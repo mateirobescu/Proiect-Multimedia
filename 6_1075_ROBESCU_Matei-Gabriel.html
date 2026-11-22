@@ -26,6 +26,7 @@
     <div class="group" role="group" aria-label="Actiuni">
       <button type="button" id="btn-undo">Undo</button>
       <button type="button" id="btn-delete">Sterge</button>
+      <button type="button" id="btn-clear">Clear</button>
       <button type="button" id="btn-export-png">Export PNG</button>
       <button type="button" id="btn-export-jpeg">Export JPEG</button>
       <button type="button" id="btn-save-svg">Salveaza SVG</button>
@@ -35,7 +36,11 @@
   <main class="workspace">
     <!-- zona de desen; viewBox fixeaza sistemul de coordonate -->
     <section class="canvas-wrap" aria-label="Zona de desen">
-      <svg id="canvas" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="1000" height="700"></svg>
+      <svg id="canvas" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="1000" height="700">
+        <!-- layer = desenul propriu-zis (se salveaza/exporta); overlay = cadrul de selectie si manerele, nu se salveaza -->
+        <g id="layer"></g>
+        <g id="overlay"></g>
+      </svg>
     </section>
 
     <!-- panou cu proprietati; se aplica la figura noua sau la cea selectata -->

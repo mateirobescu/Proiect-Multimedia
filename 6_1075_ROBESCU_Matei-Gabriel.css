@@ -42,6 +42,8 @@ body {
 
 .group {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   gap: 6px;
 }
 
@@ -91,6 +93,28 @@ button:hover {
   /* sa nu se faca scroll/zoom din gesturi cat desenez cu touch */
   touch-action: none;
   cursor: crosshair;
+}
+
+/* figurile raspund la click si in interior chiar daca nu au fundal */
+#layer > * {
+  pointer-events: all;
+}
+
+/* cadrul punctat din jurul figurii selectate */
+.selection-frame {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1;
+  stroke-dasharray: 4 3;
+  pointer-events: none;
+}
+
+/* manerele de la punctele unei cai selectate */
+.handle {
+  fill: #ffffff;
+  stroke: var(--accent);
+  stroke-width: 2;
+  cursor: move;
 }
 
 /* panoul de proprietati */
